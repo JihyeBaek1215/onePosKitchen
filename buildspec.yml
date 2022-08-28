@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto9
+  build:
+    commands:
+      - echo Build started on 'date'
+      - mvn install
+  post_build:
+    commands:
+      - echo Build completed on 'date'  
+      - echo $(basename ./target/*.war)
+      - pwd
+
+artifacts:
+  files:
+    - target/onePos.war
+    - appspec.yml
+    - cicd/**/*
+  discard-paths: yes
+cache:
+  paths:
+    - '/root/.m2/**/*'
