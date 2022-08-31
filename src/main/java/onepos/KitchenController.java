@@ -3,6 +3,7 @@ package onepos;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,6 +36,11 @@ import java.util.Optional;
 		 //Optional<ArrayList<Kitchen>> CookingList =
 		 return kitchenService.findAll();
 	 }
+	 @GetMapping("kitchens/{storeId}")
+	 public List<Kitchen> getKitchens(@PathVariable("storeId") int storeId) {
+		 //Optional<ArrayList<Kitchen>> CookingList =
+		 return kitchenService.findAllByStoreId(storeId);
+	 }
 	 @PutMapping("orders/{id}")
 	 public List<Kitchen> updateByOrderId(@PathVariable("id") int orderId, @RequestBody KitchenDto requestDto) {
 		 //Optional<ArrayList<Kitchen>> CookingList =
@@ -46,5 +52,10 @@ import java.util.Optional;
 		 System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~여기왔다!!!~~~~~~~~~~~~" + requestDto);
 		 //return kitchenService.findAll();
 		 return kitchenService.updateById(id, requestDto);
+	 }
+	 @PostMapping("kitchens")
+	 public Kitchen saveKitchens(@RequestBody Kitchen kitchen) {
+		 
+		 return kitchenService.save(kitchen);
 	 }
  }

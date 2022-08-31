@@ -15,6 +15,7 @@ public class Kitchen {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private int id; 
     private int orderId;
+    private int storeId;
     private String status;
     private OrderStatus orderStatus;
     private String nextStep;
@@ -158,6 +159,14 @@ public class Kitchen {
 
 		public void setNextStep(String nextStep) {
 			this.nextStep = nextStep;
+		}
+
+		public int getStoreId() {
+			return storeId;
+		}
+
+		public void setStoreId(int storeId) {
+			this.storeId = storeId;
 		}
 
 

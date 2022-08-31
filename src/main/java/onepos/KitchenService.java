@@ -42,4 +42,13 @@ public class KitchenService {
 
 		 return kitchenRepository.saveAll(kitchenList);
 	}
+
+	public Kitchen save(Kitchen kitchen) {
+		return kitchenRepository.save(kitchen);
+	}
+
+	public List<Kitchen> findAllByStoreId(int storeId) {
+		// TODO Auto-generated method stub
+		return kitchenRepository.findAllByStoreId(storeId);
+	}
 }
