@@ -1,7 +1,4 @@
 package onepos;
-import java.util.*;
-
-
 
 public class Ordered extends AbstractEvent {
 

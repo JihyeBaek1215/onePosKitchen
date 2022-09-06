@@ -59,12 +59,11 @@ public class PolicyHandler{
     
     @StreamListener(KafkaProcessor.INPUT)
     public void wheneverOrderd(@Payload Ordered ordered){
-    	System.out.println("######### wheneverOrderd : "+ ordered.toJson());
         if(ordered.isMe()){
             System.out.println("##### listener UpdateStatus : " + ordered.toJson());
-            System.out.println("##### listener UpdateStatus : " + ordered.getStatus());
             Kitchen order = new Kitchen();
             order.setOrderId(ordered.getId());
+            order.setStoreId(ordered.getStoreId());
             if(ordered.getStatus().equals(OrderStatus.orderRequest)) {
             	System.out.println("주문요청");
             	order.setStatus("주문요청");
@@ -79,6 +78,10 @@ public class PolicyHandler{
             kitchenRepository.save(order);
         }
     }
+//    @StreamListener(KafkaProcessor.INPUT)
+//    public void whenever(@Payload String data) {
+//    	System.out.println("####################whenever" + data);
+//    }
 
 
 }

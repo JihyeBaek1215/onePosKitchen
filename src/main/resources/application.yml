@@ -24,7 +24,6 @@ spring:
                   serde: org.apache.kafka.common.serialization.Serdes$StringSerde
       bindings:
         event-in:
-          group: order
           destination: onepos
           contentType: application/json
         event-out:
