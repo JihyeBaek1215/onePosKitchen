@@ -65,9 +65,9 @@ public class PolicyHandler{
             order.setOrderId(ordered.getId());
             order.setStoreId(ordered.getStoreId());
             if(ordered.getStatus().equals(OrderStatus.orderRequest)) {
-            	System.out.println("주문요청");
-            	order.setStatus("주문요청");
-            	order.setNextStep("주문승인");
+            	System.out.println("orderRequest");
+            	order.setStatus("orderRequest");
+            	order.setNextStep("approved");
             }else {
             	System.out.println("확인불가");
             	order.setStatus("Request");

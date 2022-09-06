@@ -50,6 +50,18 @@ import java.util.Optional;
 	 public List<Kitchen> updateKitchens(@PathVariable int id, @RequestBody KitchenDto requestDto) {
 		 //Optional<ArrayList<Kitchen>> CookingList =
 		 System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~여기왔다!!!~~~~~~~~~~~~" + requestDto);
+		 if(requestDto.getNextStep().equals("approved")) {
+			 System.out.println("###approved");
+			 requestDto.setStatus("cooking");
+			 requestDto.setNextStep("cookingFinish");
+			 System.out.println(requestDto);
+		 }else if(requestDto.getNextStep().equals("cookingFinish")) {
+			 requestDto.setStatus("cookingFinished");
+			 requestDto.setNextStep("serveRequest");
+		 }else if(requestDto.getNextStep().equals("serveRequest")) {
+			 requestDto.setStatus("served");
+			 requestDto.setNextStep("none");
+		 }
 		 //return kitchenService.findAll();
 		 return kitchenService.updateById(id, requestDto);
 	 }

@@ -35,9 +35,9 @@ public class KitchenService {
 	public List<Kitchen> updateById(int id, KitchenDto requestDto) {
 		 List<Kitchen> kitchenList = kitchenRepository.findById(id);
 		 for(Kitchen kitchen : kitchenList) {
-			 kitchen.setStatus(requestDto.getNextStep());
+			 kitchen.setStatus(requestDto.getStatus());
+			 kitchen.setNextStep(requestDto.getNextStep());
 		 }
-		 System.out.println(kitchenList);
 		 
 
 		 return kitchenRepository.saveAll(kitchenList);
