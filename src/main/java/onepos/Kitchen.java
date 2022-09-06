@@ -72,28 +72,54 @@ public class Kitchen {
             canceled.publishAfterCommit();
         }
     }
+    
 
-    /* 서킷브레이크 테스트 시 주석 해제할 것
     @PostUpdate
     public void onPostUpdate(){
         System.out.println("################# Order Status Updated and Update Event raised..!!");
-        OrdereCancelled ordereCancelled = new OrdereCancelled();
-        BeanUtils.copyProperties(this, ordereCancelled);
-        ordereCancelled.publishAfterCommit();
+        Kitchen kitchen = new Kitchen();
+        System.out.println("kitechen " + kitchen);
+        System.out.println("kitechen " + kitchen.toString());
 
-        //Following code causes dependency to external APIs
-        // it is NOT A GOOD PRACTICE. instead, Event-Policy mapping is recommended.
-
-        clothrental.external.Cancellation cancellation = new clothrental.external.Cancellation();
-        // mappings goes here
-        // 아래 this는 Order 어그리게이트
-        cancellation.setOrderId(this.getId());
-        cancellation.setStatus("Delivery Cancelled");
-        OrderApplication.applicationContext.getBean(clothrental.external.CancellationService.class)
-                .cancelship(cancellation);
+        kitchen.setStatus(kitchen.getStatus());
+        System.out.println("##### Status chk : " + status);
+        if (Objects.equals(status, "Return")){
+            Returned returned = new Returned();
+            BeanUtils.copyProperties(this, returned);
+            returned.publishAfterCommit();
+        }
+        //조리시작
+        if (Objects.equals(status, "Start")){
+            Started started = new Started();
+            BeanUtils.copyProperties(this, started);
+            started.publishAfterCommit();
+        }
+        //조리중
+        if (Objects.equals(status, "cooking")){
+        	Cooking cooking = new Cooking();
+            BeanUtils.copyProperties(this, cooking);
+            cooking.publishAfterCommit();
+        }
+        //조리완료
+        if (Objects.equals(status, "cooked")){
+        	Cooked cooked = new Cooked();
+            BeanUtils.copyProperties(this, cooked);
+            cooked.publishAfterCommit();
+        }
+        //서빙완료
+        if (Objects.equals(status, "served")){
+        	Served served = new Served();
+            BeanUtils.copyProperties(this, served);
+            served.publishAfterCommit();
+        }
+        //조리취소
+        if (Objects.equals(status,"canceled")){
+        	Canceled canceled = new Canceled();
+            BeanUtils.copyProperties(this, canceled);
+            canceled.publishAfterCommit();
+        }
 
     }
-*/
     @PreRemove
     public void onPreRemove(){
         KitchenCancelled ordereCancelled = new KitchenCancelled();

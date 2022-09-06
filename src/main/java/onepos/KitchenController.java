@@ -53,10 +53,10 @@ import java.util.Optional;
 		 if(requestDto.getNextStep().equals("approved")) {
 			 System.out.println("###approved");
 			 requestDto.setStatus("cooking");
-			 requestDto.setNextStep("cookingFinish");
+			 requestDto.setNextStep("cooked");
 			 System.out.println(requestDto);
-		 }else if(requestDto.getNextStep().equals("cookingFinish")) {
-			 requestDto.setStatus("cookingFinished");
+		 }else if(requestDto.getNextStep().equals("cooked")) {
+			 requestDto.setStatus("cooked");
 			 requestDto.setNextStep("serveRequest");
 		 }else if(requestDto.getNextStep().equals("serveRequest")) {
 			 requestDto.setStatus("served");
