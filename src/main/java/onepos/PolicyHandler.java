@@ -59,7 +59,7 @@ public class PolicyHandler{
     
     @StreamListener(KafkaProcessor.INPUT)
     public void wheneverOrderd(@Payload Ordered ordered){
-
+    	System.out.println("######### wheneverOrderd : "+ ordered.toJson());
         if(ordered.isMe()){
             System.out.println("##### listener UpdateStatus : " + ordered.toJson());
             System.out.println("##### listener UpdateStatus : " + ordered.getStatus());

@@ -1,9 +1,12 @@
 package onepos;
 import java.util.*;
 
+
+
 public class Ordered extends AbstractEvent {
 
     private int id;
+    private int storeId;
     private OrderStatus status;
     OrderItem orderItems = new OrderItem();
 
@@ -25,4 +28,11 @@ public class Ordered extends AbstractEvent {
     public void setOrderItems(OrderItem orderItems){
         this.orderItems= orderItems;
     }
+    public int getStoreId() {
+        return storeId;
+    }
+    public void setStoreId(int storeId) {
+        this.storeId = storeId;
+    }
+
 }
