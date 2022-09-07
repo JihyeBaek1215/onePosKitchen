@@ -26,11 +26,11 @@ import java.util.Optional;
 	 
 	 private final KitchenService kitchenService;
 	 
-	 @GetMapping("orders/{id}")
-	 public List<Kitchen> getByOrderId(@PathVariable int id) {
-		 //Optional<ArrayList<Kitchen>> CookingList =
-		 return kitchenService.findByOrderId(id);
-	 }
+//	 @GetMapping("orders/{id}")
+//	 public List<Kitchen> getByOrderId(@PathVariable int id) {
+//		 //Optional<ArrayList<Kitchen>> CookingList =
+//		 return kitchenService.findByOrderId(id);
+//	 }
 	 @GetMapping("kitchens")
 	 public List<Kitchen> getKitchens() {
 		 //Optional<ArrayList<Kitchen>> CookingList =
@@ -41,11 +41,11 @@ import java.util.Optional;
 		 //Optional<ArrayList<Kitchen>> CookingList =
 		 return kitchenService.findAllByStoreId(storeId);
 	 }
-	 @PutMapping("orders/{id}")
-	 public List<Kitchen> updateByOrderId(@PathVariable("id") int orderId, @RequestBody KitchenDto requestDto) {
-		 //Optional<ArrayList<Kitchen>> CookingList =
-		 return kitchenService.updateByOrderId(orderId, requestDto);
-	 }
+//	 @PutMapping("orders/{id}")
+//	 public List<Kitchen> updateByOrderId(@PathVariable("id") int orderId, @RequestBody KitchenDto requestDto) {
+//		 //Optional<ArrayList<Kitchen>> CookingList =
+//		 return kitchenService.updateByOrderId(orderId, requestDto);
+//	 }
 	 @PutMapping("kitchens/{id}")
 	 public List<Kitchen> updateKitchens(@PathVariable int id, @RequestBody KitchenDto requestDto) {
 		 //Optional<ArrayList<Kitchen>> CookingList =
