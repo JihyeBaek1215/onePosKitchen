@@ -1,31 +1,20 @@
 
 package onepos;
 
+import javax.persistence.Embedded;
+
+import lombok.Data;
+@Data
 public class Served extends AbstractEvent {
 
-    private Long id;
-    private Long orderId;
-    private String status;
+	 private int id; 
+	    private int orderId;
+	    private int storeId;
+	    private String status;
+	    private OrderStatus orderStatus;
+	    private String nextStep;
+	    
+	    @Embedded
+	    OrderItem orderItems = new OrderItem();
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-    public Long getorderId() {
-        return orderId;
-    }
-
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
-    }
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
 }

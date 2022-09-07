@@ -78,8 +78,9 @@ public class Kitchen {
     public void onPostUpdate(){
         System.out.println("################# Order Status Updated and Update Event raised..!!");
         Kitchen kitchen = new Kitchen();
-        System.out.println("kitechen " + kitchen);
-        System.out.println("kitechen " + kitchen.toString());
+        System.out.println("kitechen " + id);
+        System.out.println("kitechen " + orderId);
+        System.out.println("kitechen " + kitchen.getOrderItems());
 
         kitchen.setStatus(kitchen.getStatus());
         System.out.println("##### Status chk : " + status);
